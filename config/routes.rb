@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     }
   end
   resources :users, only: :show
+  resources :stores
+  resources :checkins
 end

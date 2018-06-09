@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609033401) do
+ActiveRecord::Schema.define(version: 20180609041237) do
+
+  create_table "checkins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "store_id"
+    t.datetime "visit_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_checkins_on_store_id"
+    t.index ["user_id"], name: "index_checkins_on_user_id"
+  end
+
+  create_table "stay_times", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "store_id"
+    t.integer "stay_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_stay_times_on_store_id"
+  end
+
+  create_table "stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "adress"
+    t.string "uuid"
+    t.integer "capacity"
+    t.integer "stay_average_time"
+    t.float "lat", limit: 24
+    t.float "lng", limit: 24
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "provider", default: "email", null: false
@@ -35,4 +65,7 @@ ActiveRecord::Schema.define(version: 20180609033401) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "checkins", "stores"
+  add_foreign_key "checkins", "users"
+  add_foreign_key "stay_times", "stores"
 end
