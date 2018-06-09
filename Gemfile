@@ -23,10 +23,6 @@ gem 'jbuilder'
 
 # クロスドメイン対策のgem
 gem 'rack-cors'
-<<<<<<< HEAD
-=======
-
->>>>>>> eb5f6193e1c7de53aa23e5d24da13bc4061afab2
 gem 'pry-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
