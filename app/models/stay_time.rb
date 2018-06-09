@@ -1,0 +1,2 @@
+class StayTime < ApplicationRecord
+end
