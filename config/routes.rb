@@ -4,4 +4,7 @@ Rails.application.routes.draw do
         registrations: 'api/auth/registrations'
     }
   end
+
+  resources :stores
+  resources :checkins
 end
