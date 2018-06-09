@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
-  def index
-    binding.pry
+  def show
+    @store = Store.find(params[:id])
+
+    render json: @store
   end
 end

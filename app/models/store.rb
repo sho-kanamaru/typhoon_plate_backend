@@ -1,4 +1,4 @@
 class Store < ApplicationRecord
-  has_many :checkin
+  has_many :checkins
   belongs_to :stay_time
 end
