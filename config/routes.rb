@@ -4,4 +4,5 @@ Rails.application.routes.draw do
         registrations: 'api/auth/registrations'
     }
   end
+  resources :users, only: :show
 end
